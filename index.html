@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect Four — 4 Levels</title>
+  <link rel="stylesheet" href="styles.css?v=72e24c4" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="header">
+      <h1>Connect Four</h1>
+      <p class="tagline">Beat all 4 levels to become champion!</p>
+    </header>
+
+    <!-- Level progress -->
+    <nav class="level-progress" aria-label="Level progress">
+      <div class="level-step active" id="step-1">
+        <div class="step-dot"><span>1</span></div>
+        <span class="step-label">Rookie</span>
+      </div>
+      <div class="step-line" id="line-1"></div>
+      <div class="level-step" id="step-2">
+        <div class="step-dot"><span>2</span></div>
+        <span class="step-label">Beginner</span>
+      </div>
+      <div class="step-line" id="line-2"></div>
+      <div class="level-step" id="step-3">
+        <div class="step-dot"><span>3</span></div>
+        <span class="step-label">Skilled</span>
+      </div>
+      <div class="step-line" id="line-3"></div>
+      <div class="level-step" id="step-4">
+        <div class="step-dot"><span>4</span></div>
+        <span class="step-label">Expert</span>
+      </div>
+    </nav>
+
+    <!-- HUD -->
+    <section class="hud">
+      <div class="hud-card">
+        <span class="hud-label">Level</span>
+        <strong id="levelLabel" class="hud-value">1 / 4</strong>
+      </div>
+      <div class="hud-card hud-status-card">
+        <span class="hud-label">Status</span>
+        <strong id="status" class="hud-value">Your turn</strong>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">Wins</span>
+        <strong id="score" class="hud-value">0</strong>
+      </div>
+    </section>
+
+    <!-- Records bar -->
+    <section class="records-bar" aria-label="Personal records">
+      <div class="rec-item">
+        <span class="rec-label">Streak</span>
+        <strong id="recStreak" class="rec-value">0</strong>
+      </div>
+      <div class="rec-sep"></div>
+      <div class="rec-item">
+        <span class="rec-label">Best Streak</span>
+        <strong id="recMaxStreak" class="rec-value">0</strong>
+      </div>
+      <div class="rec-sep"></div>
+      <div class="rec-item">
+        <span class="rec-label">Best Clear</span>
+        <strong id="recBestTime" class="rec-value">—</strong>
+      </div>
+    </section>
+
+    <!-- AI difficulty badge -->
+    <div class="diff-badge" id="diffBadge">
+      <span id="diffDot" class="diff-dot"></span>
+      <span id="diffText">Rookie AI — plays randomly</span>
+    </div>
+
+    <!-- Column hover arrows -->
+    <div class="col-arrows" id="colArrows" aria-hidden="true">
+      <button class="arrow-btn" data-col="0">▼</button>
+      <button class="arrow-btn" data-col="1">▼</button>
+      <button class="arrow-btn" data-col="2">▼</button>
+      <button class="arrow-btn" data-col="3">▼</button>
+      <button class="arrow-btn" data-col="4">▼</button>
+      <button class="arrow-btn" data-col="5">▼</button>
+      <button class="arrow-btn" data-col="6">▼</button>
+    </div>
+
+    <!-- Board -->
+    <section id="board" class="board" role="grid" aria-label="Connect Four board"></section>
+
+    <!-- Controls -->
+    <section class="controls">
+      <button id="restartBtn" class="btn btn-secondary">&#8635; Restart Level</button>
+      <button id="resetAllBtn" class="btn btn-ghost">&#8855; Reset All Progress</button>
+    </section>
+
+    <!-- Overlay modal -->
+    <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+      <div class="modal-card">
+        <div class="modal-icon" id="overlayIcon"></div>
+        <h2 id="overlayTitle" class="modal-title"></h2>
+        <p id="overlayText" class="modal-text"></p>
+        <button id="overlayBtn" class="btn btn-primary"></button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js?v=72e24c4"></script>
+</body>
+</html>
